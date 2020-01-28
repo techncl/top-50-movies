@@ -1,0 +1,12 @@
+body {
+     font-family: 'Permanent Marker', cursive;
+}
+
+.intro {
+    color: red;
+}
+
+#content {
+    align: center;
+    background: #00bfff;
+}

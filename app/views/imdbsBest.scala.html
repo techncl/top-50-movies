@@ -1,0 +1,65 @@
+@(genres: List[String], years: List[String])
+
+@main("Welcome to Play") {
+<div id="allData">
+    <h1 class="intro">Find the top 50 movies from a specific period!</h1>
+    <h2 class="intro">Select your medium, genre and time period!</h2>
+    <!--    q=until%3A2008-11-16%20since%3A2009-09-19-->
+    <div id="content">
+        <table>
+            <form action="bestmovie">
+                <tr>
+                    <td>Movie Or TV show:</td>
+
+                    <td>
+                        <select name="med">
+                            <option value="Movie">Movie</option>
+                            <option value="TV Show">TV</option>
+
+                        </select><br>
+                    </td>
+                </tr>
+
+                <tr>
+                <tr>
+                    <td>Genre</td>
+
+                    <td>
+                        <select name="gen">
+                            @for(genre <- genres) {
+                            <option value="@genre">@genre</option>
+                            }
+
+                        </select><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Year From:</td>
+                    <td>
+                        <select name="fy">
+                            @for(year <- years) {
+                            <option value="@year">@year</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Year to:</td>
+                    <td>
+                        <select name="ty">
+                            @for(year <- years) {
+                            <option value="@year">@year</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr> <td>
+                    <br><br>
+                    <input type="submit" value="Submit"> </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
+}

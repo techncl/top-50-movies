@@ -1,0 +1,51 @@
+@(days: List[String], months: List[String], years: List[String])
+
+@main("Welcome to Play") {
+  <div id="allData">
+    <h1 class="intro">Welcome to the Date page!</h1>
+    <h2 class="intro">Select your favourite date from below!</h2>
+<!--    q=until%3A2008-11-16%20since%3A2009-09-19-->
+    <div id="content">
+      <table>
+        <form action="date">
+          <tr>
+            <td>Day:</td>
+
+            <td>
+              <select name="q">
+                @for(day <- days) {
+                  <option value="@day">@day</option>
+                }
+              </select><br>
+            </td>
+          </tr>
+          <tr>
+            <td>Month:</td>
+            <td>
+              <select name="m">
+                @for(month <- months) {
+                <option value="@month">@month</option>
+                }
+              </select>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>Year:</td>
+            <td>
+              <select name="y">
+                @for(year <- years) {
+                <option value="@year">@year</option>
+                }
+              </select>
+            </td>
+          </tr>
+          <tr> <td>
+            <br><br>
+            <input type="submit" value="Submit"> </td>
+          </tr>
+        </form>
+      </table>
+      </div>
+  </div>
+}
