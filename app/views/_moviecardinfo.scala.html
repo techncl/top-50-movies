@@ -1,0 +1,39 @@
+@(movieInfo: Map[String, List[String]], imageUrlRegex: String = """U[A-Z]\d\d_CR\d,\d,\d\d,\d\d""")
+
+
+<div class="card h-100 mb-3" style="background-color: #232222a3">
+    <div class="row no-gutters">
+        <div class="col-md-4" style="color: #ffffff">
+            <img src=@{movieInfo("image").mkString.replaceAll(imageUrlRegex, "UY400_CR0,300,270,400")} class="card-img" alt="...">
+            <h1 class="card-text text-center">@movieInfo("rating")</h1>
+
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <div class="row">
+                    <div class="card-top justify-content-between w-100" style="color: #ffffff">
+                        <h2 class="text-right">@movieInfo("rank")</h2>
+                        <h5 class="card-title">@movieInfo("title") (@movieInfo("year"))</h5>
+                    </div>
+                </div>
+                <p class="card-text"><small class="text-muted">Starring: @movieInfo("starring").mkString(", ")</small></p>
+                <p class="card-text"><small class="text-muted">Directors: @movieInfo("directors").mkString(", ")</small></p>
+                <p class="card-text" style="color: #ffffff; font-size:0.8rem">@movieInfo("plot")</p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--"image" -> """loadlate="(.*)"""".r,-->
+<!--"rank" -> """<span class="lister-item-index unbold text-primary">(.*)</span>""".r,-->
+<!--"title" -> """a href="/title/\w+/"\s*> <img alt="(.*)"""".r,-->
+<!--"year" -> """<span class="lister-item-year text-muted unbold">.*\((\d+)\)</span>""".r,-->
+<!--"certificate" -> """<span class="certificate\">(\w+)</span>""".r,-->
+<!--"titleRuntime" -> """<span class="runtime">(.*)</span>""".r,-->
+<!--"rating" -> """name="ir"\s*data-value="([\d\.]+)">""".r,-->
+<!--"plot" -> """<p class="text-muted">(\s*.*\s*.*?)(?:</p>|\.\.\.)""".r,-->
+<!--"directors" -> """Directors?:\s*<a href="/name/\w+/"\s*>(.*)</a>(?:,\s*<a href="/name/\w+/"\s*>(.*)</a>)*""".r,-->
+<!--"starring" -> """Stars:\s*<a href="/name/\w+/"\s*>(.*)</a>(?:,\s*<a href="/name/\w+/"\s*>(.*)</a>)*""".r-->

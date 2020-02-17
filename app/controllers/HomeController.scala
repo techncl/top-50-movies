@@ -19,18 +19,20 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
    * a path of `/`.
    */
 
-//  val days = List("--", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
-//  val months = List("--", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-  val years: List[String] = (1920 to 2020).reverse.map{
+  //  val days = List("--", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+  //  val months = List("--", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+  val years: List[String] = (1920 to 2020).reverse.map {
     year => year.toString
   }.toList
 
-  val genres = List("All", "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Film-Noir", "Game-Show", "History", "Horror", "Music", "Musical", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Sport", "Talk-Show", "Thriller", "War", "Western")
+  val genres = List("All", "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary", "Drama",
+                   "Family", "Fantasy", "Film-Noir", "Game-Show", "History", "Horror", "Music", "Musical", "Mystery", 
+                   "News", "Reality-TV", "Romance", "Sci-Fi", "Sport", "Talk-Show", "Thriller", "War", "Western")
 
-//  def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-//
-//    Ok(views.html.index(days, months, "--" :: years))
-//  }
+  //  def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+  //
+  //    Ok(views.html.index(days, months, "--" :: years))
+  //  }
 
 
   def imdb(): Action[AnyContent] = Action {

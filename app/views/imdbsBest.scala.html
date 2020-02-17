@@ -7,16 +7,18 @@
     <!--    q=until%3A2008-11-16%20since%3A2009-09-19-->
     <div id="content">
         <table>
+            <div class="form-group">
             <form action="bestmovie">
                 <tr>
-                    <td>Movie Or TV show:</td>
-
+                    <td>Movies or TV shows:</td>
                     <td>
-                        <select name="med">
-                            <option value="Movie">Movie</option>
-                            <option value="TV Show">TV</option>
+                        <div class="form-group">
+                            <select class="form-control" name="med">
+                                <option value="Movies">Movies</option>
+                                <option value="TV Shows">TV Shows</option>
 
-                        </select><br>
+                            </select>
+                        </div>
                     </td>
                 </tr>
 
@@ -25,19 +27,21 @@
                     <td>Genre</td>
 
                     <td>
-                        <select name="gen">
+
+                        <select class="form-control" name="gen">
                             @for(genre <- genres) {
                             <option value="@genre">@genre</option>
                             }
 
-                        </select><br>
+                        </select>
+
                     </td>
                 </tr>
 
                 <tr>
                     <td>Year From:</td>
                     <td>
-                        <select name="fy">
+                        <select class="form-control" name="fy">
                             @for(year <- years) {
                             <option value="@year">@year</option>
                             }
@@ -47,7 +51,7 @@
                 <tr>
                     <td>Year to:</td>
                     <td>
-                        <select name="ty">
+                        <select class="form-control" name="ty">
                             @for(year <- years) {
                             <option value="@year">@year</option>
                             }
@@ -56,9 +60,11 @@
                 </tr>
                 <tr> <td>
                     <br><br>
-                    <input type="submit" value="Submit"> </td>
+                    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                </td>
                 </tr>
             </form>
+                </div>
         </table>
     </div>
 </div>
