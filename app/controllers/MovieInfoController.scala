@@ -36,11 +36,11 @@ class MovieInfoController @Inject()(val controllerComponents: ControllerComponen
       "&sort=user_rating,desc"
   }
 
-  def getGroups(movieAttribute: String, truncatedHtml: String): List[String] = {
+  def getRegexGroups(movieAttribute: String, truncatedHtml: String): List[String] = {
 
     val movieAttributeAndHtmlText: List[String] = movieAttribute match {
-      case "directors" => List(movieAttribute, """Directors?:(\s|.)*?<span class""".r.findFirstIn(truncatedHtml).get)
-      case "starring" => List(movieAttribute, """Stars:(\s|.)*?</p>""".r.findFirstIn(truncatedHtml).get)
+      case "directors" => List(movieAttribute, """Directors?:(\s|.)*?<span class""".r.findFirstIn(truncatedHtml).getOrElse(""))
+      case "starring" => List(movieAttribute, """Stars:(\s|.)*?</p>""".r.findFirstIn(truncatedHtml).getOrElse(""))
       case _ => List(movieAttribute, truncatedHtml)
     }
 
@@ -53,8 +53,9 @@ class MovieInfoController @Inject()(val controllerComponents: ControllerComponen
         movieInfoRegex.findAllIn(htmlText).matchData.map(result => result.group(1)).toList
       }
       else movieInfoRegex.findAllIn(htmlText).subgroups
+    }
 
-    } else List("")
+    else List("")
   }
 
   def imdbBestMovie(med: Option[String], gen: Option[String], fy: Option[String], ty: Option[String]):
@@ -85,7 +86,7 @@ class MovieInfoController @Inject()(val controllerComponents: ControllerComponen
 
         val movieInfo: Seq[(String, List[String])] = movieAttributes.map{ movieAttribute =>
           val attribute = if (movieAttribute.contains("Year")) "year" else movieAttribute
-          val movieInfoResults: List[String] = getGroups(movieAttribute, truncatedHtml)
+          val movieInfoResults: List[String] = getRegexGroups(movieAttribute, truncatedHtml)
           (attribute, movieInfoResults)
         }
 

@@ -1,9 +1,10 @@
 @(medium : String, fy: String, toYear: String , movieInfoMap: Array[Map[String, List[String]]])
 
-@main("Welcome to Play") {
+@main(s"Top 50 $medium from $fy $toYear") {
 <div class="background">
     <div class="text-center" style="color: #ffffff">
         <h1>Top 50 @medium from @fy @toYear </h1>
+        <br>
     </div>
     <div class="container">
         <div class="row row-cols-3">
