@@ -1,12 +1,29 @@
-body {
-     font-family: 'Permanent Marker', cursive;
-}
-
 .intro {
     color: red;
 }
 
 #content {
     align: center;
-    background: #00bfff;
+    font-size: 3rem;
+}
+
+.form-control-lg {
+    height: calc(2.5em + 1rem + 2px)
+}
+
+.background {
+    background-color: black;
+    color: white;
+}
+
+.card {
+    background-color: #232222a3;
+}
+
+.col-6, .col-2, .col-1 {
+    padding-top: 15px;
+}
+
+.col-1 {
+    font-size: 1.5rem;
 }

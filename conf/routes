@@ -6,7 +6,7 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.imdb
 
-GET     /bestmovie                  controllers.DiaryController.imdbBestMovie(med: Option[String], gen: Option[String], fy: Option[String], ty: Option[String])
+GET     /bestmovie                  controllers.MovieInfoController.imdbBestMovie(med: Option[String], gen: Option[String], fy: Option[String], ty: Option[String])
 GET     /date                       controllers.DiaryController.date(d: Option[String], m: Option[String], y: Option[String])
 
 # Map static resources from the /public folder to the /assets URL path
