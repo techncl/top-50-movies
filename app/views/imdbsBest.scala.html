@@ -1,71 +1,64 @@
 @(genres: List[String], years: List[String])
 
-@main("Welcome to Play") {
+@main("Top 50 movies and TV shows") {
 <div id="allData">
-    <h1 class="intro">Find the top 50 movies from a specific period!</h1>
-    <h2 class="intro">Select your medium, genre and time period!</h2>
+    <h1 class="text-center">Find the top 50 movies from a specific period!</h1>
+    <h2 class="text-center">Select your medium, genre and time period!</h2><br>
     <!--    q=until%3A2008-11-16%20since%3A2009-09-19-->
-    <div id="content">
-        <table>
-            <div class="form-group">
-            <form action="bestmovie">
-                <tr>
-                    <td>Movies or TV shows:</td>
-                    <td>
-                        <div class="form-group">
-                            <select class="form-control" name="med">
-                                <option value="Movies">Movies</option>
-                                <option value="TV Shows">TV Shows</option>
-
-                            </select>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                <tr>
-                    <td>Genre</td>
-
-                    <td>
-
-                        <select class="form-control" name="gen">
-                            @for(genre <- genres) {
-                            <option value="@genre">@genre</option>
-                            }
-
-                        </select>
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Year From:</td>
-                    <td>
-                        <select class="form-control" name="fy">
-                            @for(year <- years) {
-                            <option value="@year">@year</option>
-                            }
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Year to:</td>
-                    <td>
-                        <select class="form-control" name="ty">
-                            @for(year <- years) {
-                            <option value="@year">@year</option>
-                            }
-                        </select>
-                    </td>
-                </tr>
-                <tr> <td>
-                    <br><br>
-                    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-                </td>
-                </tr>
-            </form>
+    <div class="container card h-100" id="content">
+        <form action="bestmovie">
+            <div class="row">
+                <div class="col-6">Movies or TV shows: </div>
+                <div class="col-6">
+                    <select class="form-control form-control-lg" name="med">
+                        <option value="Movies">Movies</option>
+                        <option value="TV Shows">TV Shows</option>
+                    </select>
                 </div>
-        </table>
+            </div>
+
+            <div class="row">
+                <div class="col-6">Genre:</div>
+                <div class="col-6">
+                    <select class="form-control form-control-lg" name="gen">
+                        @for(genre <- genres) {
+                        <option value="@genre">@genre</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">Year:</div>
+                <div class="col-1">From</div>
+                <div class="col-2">
+                    <select class="form-control form-control-lg" name="fy">
+                        @for(year <- years) {
+                        <option value="@year">@year</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-1">To</div>
+                <div class="col-2">
+                    <select class="form-control form-control-lg" name="ty">
+                        @for(year <- years) {
+                        <option value="@year">@year</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="form-group">
+
+
+    </div>
+
+    </form>
     </div>
 </div>
 }

@@ -1,7 +1,7 @@
 @(movieInfo: Map[String, List[String]], imageUrlRegex: String = """U[A-Z]\d\d_CR\d,\d,\d\d,\d\d""")
 
 
-<div class="card h-100 mb-3" style="background-color: #232222a3">
+<div class="card h-100 mb-3">
     <div class="row no-gutters">
         <div class="col-md-4" style="color: #ffffff">
             <img src=@{movieInfo("image").mkString.replaceAll(imageUrlRegex, "UY400_CR0,300,270,400")} class="card-img" alt="...">
